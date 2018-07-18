@@ -1,13 +1,14 @@
 # EncryptedJsonConfigProvider.Core
 
-This provider can be used in a .NET Core application in which you wish to store configuration settings in an encrypted JSON file on disk, and then load them into your IConfigurationRoot using the Microsoft.Extensions.Configuration library.
-Typically, at runtime you would require your users to enter a password in order to decrypt the configuration.
+This code can be used in a .NET Core application in which you wish to store configuration settings in an encrypted JSON file on disk, and then load the settings into an IConfigurationRoot using the Microsoft.Extensions.Configuration library. At runtime you would require your users to enter a password in order to decrypt the configuration.
 
-Note that this approach is not 100% secure. However I believe there are a few use cases where this approach will be appropriate and more robust than other alternatives. I am keen to here the developer's communities insights into what vulnerabilities exist, so feel free to raise any issues.
+A separate console application (EncryptedSettingsManager) is included that can be used for performing the encryption, and for decrypting the contents of the JSON file so that it can be edited.
+
+Note that while this approach is not 100% secure, I believe there are a few use cases where it will be appropriate and more robust than other common alternatives. I am keen to here the developer community's insights into what vulnerabilities exist, so feel free to raise as issues.
 
 ## Before using
 
-The salt used for encryption is currently hardcoded in the code (see https://github.com/cbp123/EncryptedJsonConfigProvider.Core/blob/master/EncryptedConfiguration/Constants.cs). I suggest that you change this salt to something else (any random letters or numbers will work). I am still thinking of the best way to have the salt supplied to the application in a convenient manner.
+The salt used for encryption is currently hardcoded as constant (see https://github.com/cbp123/EncryptedJsonConfigProvider.Core/blob/master/EncryptedConfiguration/Constants.cs). I suggest that you change this salt to something else (any random letters or numbers will work, or alternatively I have included a utility in EncryptedSettingsManager that will generate one for you). I am still trying to work out the best way to have the salt supplied to the application in a convenient manner.
 
 ## Usage example
 
