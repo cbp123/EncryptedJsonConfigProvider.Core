@@ -52,6 +52,15 @@ namespace EncryptedSettingsManager
 
                 EncryptSettings(inputFilenameOption.Value(), inputJsonOption.Value(), outputFilenameOption.Value());
 
+                Console.WriteLine($"Delete {inputFilenameOption.Value()}? (y/n)");
+
+                if (Console.ReadLine() == "y")
+                {
+                    File.Delete(inputFilenameOption.Value());
+                }
+
+                Console.WriteLine("Press any key to exit.");
+
                 Console.ReadKey();
 
                 return (int)Program.ExitCodes.Success;
@@ -62,7 +71,7 @@ namespace EncryptedSettingsManager
         {
             Console.WriteLine("Beginning encrypting settings.");
             EncryptedConfigurationUtilities.EncryptSettings(Password, inputFilename, inputJson, outputFilename);
-            Console.WriteLine("Finished encrypting settings. Press any key to exit.");
+            Console.WriteLine("Finished encrypting settings.");
         }
     }
 }

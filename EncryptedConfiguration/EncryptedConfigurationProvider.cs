@@ -1,12 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Security;
 using System.Security.Cryptography;
 using Microsoft.Extensions.Configuration.Json;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace EncryptedConfiguration
 {
